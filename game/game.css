@@ -6,11 +6,28 @@ body {
     margin: 0;
     min-height: 100vh;
     font-family: sans-serif;
-    background: url("../pictures/gameBG.png") center / cover no-repeat;
-
+    background-image: url("../pictures/background_Game.png");
+    background-size: cover;
+    background-position: center;
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
+    color: #fff;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    pointer-events: none;
+    z-index: 0;
+}
+
+body > * {
+    position: relative;
+    z-index: 1;
 }
 
 /* TIMER */
@@ -22,12 +39,19 @@ body {
 #timer {
     font-family: monospace;
     font-size: 2.5rem;
-    border: 3px solid black;
+    border: 3px solid rgba(255, 255, 255, 0.9);
     padding: 10px 25px;
+    color: #fff;
+    border-radius: 14px;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.45);
 }
 
 #penalty {
     margin-top: 5px;
+    color: #fff;
+    font-weight: 600;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
 }
 
 /* RÄTSEL-BLOCK */
@@ -54,10 +78,11 @@ body {
 }
 
 .riddle span {
-    font-size: 28px; /* größer machen nach Wunsch */
+    font-size: 28px;
     font-weight: 700;
     width: 28px;
     text-align: right;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
 }
 
 /* INPUT */
@@ -65,10 +90,11 @@ body {
     height: 50px;
     font-size: 1.5rem;
     text-align: center;
-    border: 3px solid black;
+    border: 3px solid rgba(255, 255, 255, 0.9);
     border-radius: 10px;
+    color: #1a1a1a;
+    font-weight: 700;
 }
-
 /* BUTTON */
 .riddle button {
     background: transparent;
@@ -89,12 +115,17 @@ body {
     transform: scale(0.96);
 }
 
+
 /* NEU: Tipp-Button */
 #hintButton {
     margin: 10px 0 0;
     padding: 16px 50px;
     font-size: 1.2rem;
     border-radius: 30px;
+    color: #1a1a1a;
+    font-weight: 700;
+    border: 2px solid #fff;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
 }
 
 /* FINISH */
@@ -103,6 +134,10 @@ body {
     padding: 20px 60px;
     font-size: 1.5rem;
     border-radius: 30px;
+    color: #1a1a1a;
+    font-weight: 700;
+    border: 2px solid #fff;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
 }
 
 #finishButton:disabled {
